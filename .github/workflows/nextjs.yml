@@ -35,14 +35,16 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
+        working-directory: ./interactiveflix
 
       - name: Export Next.js static files
         run: npm run export
+        working-directory: ./interactiveflix
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./interactiveflix/out
 
   deploy:
     environment:
