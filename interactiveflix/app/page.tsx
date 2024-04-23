@@ -1,7 +1,27 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import React, { useState, useEffect } from 'react';
 
 export default function Home() {
+
+  const sasUrl = "https://interactiveflixblob.blob.core.windows.net/flixblobstorage1/brothers.mp4?sv=2023-11-03&st=2024-04-23T18%3A26%3A29Z&se=2024-04-23T19%3A26%3A29Z&sr=b&sp=r&sig=dGapSdQzPHvEQ6QCEREcjuXRLIjZDqxp4%2FVVW7K4byw%3D";
+  // useEffect(() => {
+  //   // Replace `API_ENDPOINT` with your actual API endpoint
+  //   // and `videoId` with the identifier for your video.
+  //   const fetchVideoUrl = async () => {
+  //     try {
+  //       const response = await fetch(`/api/videos/${videoId}`);
+  //       const data = await response.json();
+  //       setVideoUrl(data.videoUrl); // Assuming the response contains the video URL
+  //     } catch (error) {
+  //       console.error('Failed to fetch video', error);
+  //     }
+  //   };
+
+  //   fetchVideoUrl();
+  // }, [videoId]);
+
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -9,6 +29,11 @@ export default function Home() {
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.tsx</code>
         </p>
+        
+        <video width="100%" height="auto" controls>
+          <source src={sasUrl} type="video/mp4" />
+          
+        </video>
         <div>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
