@@ -32,7 +32,6 @@ export default function Home() {
         
         <video width="100%" height="auto" controls>
           <source src={sasUrl} type="video/mp4" />
-          
         </video>
         <div>
           <a
