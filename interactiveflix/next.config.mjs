@@ -9,7 +9,7 @@ const nextConfig = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "http://127.0.0.1:32777",
+            value: "http://127.0.0.1:32772",
           },
           {
             key: "Access-Control-Allow-Methods",

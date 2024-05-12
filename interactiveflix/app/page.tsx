@@ -1,8 +1,11 @@
 'use client'
-
 import Image from "next/image";
 import styles from "./page.module.css";
 import React, { useState } from 'react';
+import { signOut, useSession,  } from 'next-auth/react';
+import  firebase from 'firebase/app';
+import 'firebase/auth';
+
 
 
 interface Message {
@@ -15,7 +18,8 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState('');
   const [response, setResponse] = useState('');
-
+  const { data: session } = useSession();
+  
 
   const sasUrl = "https://interactiveflixblob.blob.core.windows.net/flixblobstorage1/brothers.mp4?sv=2023-11-03&st=2024-04-25T11%3A32%3A11Z&se=2024-04-25T12%3A32%3A11Z&sr=b&sp=r&sig=dDUJkkoK2lC5AIfo38jiwgN4TwTf9JBne8SWaKLsuhI%3D";
   // useEffect(() => {
@@ -44,7 +48,7 @@ export default function Home() {
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:32777/Chat', {
+        const response = await fetch('http://127.0.0.1:32772/Chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -78,7 +82,10 @@ export default function Home() {
         </video>
         
       </div>
-
+      <div>
+        <div >{session?.user?.name }</div>
+        <button onClick={() => signOut()}>Logout</button>
+      </div>
       
       <div>
         <input
